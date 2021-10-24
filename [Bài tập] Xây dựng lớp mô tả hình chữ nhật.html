@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Square {
+        length;
+        height;
+        constructor(length, height) {
+            this.length = length;
+            this.height = height;
+        }
+
+        getLength() {
+            return this.length
+        }
+
+        setLength(length) {
+            this.length = length
+        }
+
+        getHeight() {
+            return this.height
+        }
+
+        setHeight(length) {
+            this.height = length
+        }
+        getArea(){
+            return this.length * this.height
+        }
+        getPeri(){
+            return (this.length + this.height) * 2
+        }
+    }
+
+    let square = new Square(5,10);
+    console.log(square.getArea());
+    console.log(square.getPeri());
+    square.setLength(15);
+    console.log(length);
+    console.log(square.getArea());
+    console.log(square.getPeri());
+
+
+
+</script>
+</body>
+</html>
