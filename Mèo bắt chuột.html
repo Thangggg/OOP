@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  class Animal {
+      name;
+      weight;
+      speed;
+      status;
+      say;
+      constructor(name, weight, speed, status, say) {
+          this.name = name;
+          this.weight = weight;
+          this.speed = speed;
+          this.status = status;
+          this.say = say;
+      }
+
+
+      getName() {
+          return this.name;
+      }
+
+      setName(value) {
+          this.name = value;
+      }
+
+      getWeight() {
+          return this.weight;
+      }
+
+      setWeight(value) {
+          this.weight = value;
+      }
+
+      getSpeed() {
+          return this.speed;
+      }
+
+      setSpeed(value) {
+          this.speed = value;
+      }
+
+      getStatus() {
+          return this.status;
+      }
+
+      setStatus(value) {
+          this.status = value;
+      }
+
+      getSay() {
+          return this.say;
+      }
+
+      setSay(value) {
+          this.say = value;
+      }
+  }
+
+  let mouse = new Animal("Rat", 2, 10, false, "Chít Chít");
+  let cat = new Animal("Cat", 5, 9, true, "Meo meo");
+  eatMouse()
+  function eatMouse () {
+      if (mouse.getStatus() === true && cat.getSpeed() > mouse.getSpeed()){
+          alert(cat.getSay());
+          cat.setWeight(cat.getWeight() + mouse.getWeight());
+          mouse.setWeight(0)
+          mouse.setStatus(false)
+      }else if (mouse.getStatus() === true && cat.getSpeed() <= mouse.getSpeed()){
+          alert(mouse.getSay())
+      }else {
+          alert("Đói vl")
+      }
+  }
+
+  console.log(cat.getWeight())
+  console.log(mouse.getWeight())
+  console.log(mouse.getStatus())
+
+</script>
+</body>
+</html>

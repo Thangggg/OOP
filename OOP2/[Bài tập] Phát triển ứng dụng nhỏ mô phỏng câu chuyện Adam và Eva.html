@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  class Apple {
+      weight;
+      constructor(weight) {
+          this.weight = weight
+      }
+
+      getWeight() {
+          return this.weight
+      }
+
+      setWeight(value) {
+          this.value = value
+      }
+
+      eat () {
+          this.setWeight(this.weight - 1)
+      }
+  }
+
+  class Human {
+      name;
+      gender;
+      weight;
+      constructor(name, gender, weight) {
+          this.name = name;
+          this.gender = gender;
+          this.weight = weight
+      }
+
+      getName() {
+          return this.name
+      }
+      setName(value) {
+          this.name = value
+      }
+
+      getGender() {
+          return this.gender
+      }
+      setGender(value) {
+          this.gender = value
+      }
+
+      getWeight() {
+          return this.weight
+      }
+      setWeight(value) {
+          this.weight = value
+      }
+
+
+
+
+
+
+  }
+
+  let man = new Human("Adam", true , 70);
+  let women = new Human( "Eva", false, 50);
+  let apple = new Apple(10);
+
+  // console.log(apple.getWeight())
+
+  manEatApple()
+  function manEatApple () {
+      if (apple.getWeight() > 0){
+          man.setWeight(man.getWeight() + 1);
+          apple.getWeight(apple.getWeight() - 1);
+      }else {
+          alert("Ăn lằm ăn lốn")
+      }
+  }
+  womanEatApple()
+  function womanEatApple() {
+      if (apple.getWeight() > 0){
+          women.setWeight(women.getWeight() + 1);
+          apple.getWeight(apple.getWeight() - 1)
+      }else {
+          alert("Ăn lằm ăn lốn")
+      }
+  }
+
+  function checkWeightApple() {
+      alert(apple.getWeight())
+  }
+
+  function checkGender () {
+      if (man.getGender() === true){
+          alert("I am Adam")
+      }else {
+          alert(" I am Eva")
+      }
+  }
+
+  function checkWeightPeople () {
+      if (man.getGender() === true){
+          alert(man.getWeight())
+      }else {
+          alert(women.getWeight())
+      }
+  }
+
+  function newApple () {
+      apple.setWeight(10)
+  }
+
+</script>
+</body>
+</html>
