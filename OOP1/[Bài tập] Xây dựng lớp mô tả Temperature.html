@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class  Temperature {
+        doC;
+        doF;
+        doK;
+        constructor(doC , doF , doK) {
+            this.doC = doC ;
+            this.doF = doF ;
+            this.doK = doK ;
+        }
+        getDoC(){
+            return this.doC
+        }
+        setDoC(doC){
+            if(doC < -273){
+                alert("Giá trị nhỏ nhất của độ C là -273")
+            }else {
+                this.setDoC = doC
+            }
+        }
+        getdoF(){
+            return this.doF
+        }
+        setdoF(doC){
+            this.doC = doF
+        }
+        getdoK(){
+            return this.doK
+        }
+        setdoK(doC){
+            this.doC = doK
+        }
+        getTemperF(){
+            return (this.doC * 1.8) + 32
+        }
+        getTemperK(){
+            return (this.doC + 273,15)
+        }
+    }
+
+    let temper = new Temperature(25);
+    console.log(temper.getTemperF());
+    console.log(temper.getTemperK());
+    temper.setDoC(-280);
+    console.log(temper.getTemperF());
+    console.log(temper.getTemperK());
+</script>
+</body>
+</html>

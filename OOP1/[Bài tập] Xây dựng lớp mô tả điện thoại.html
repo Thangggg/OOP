@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="Khởi động" onclick="power()">
+<input type="button" value="Sạc Pin" onclick="chargePin()">
+<p id="pin"></p>
+Soạn tin nhắn: <input type="text" id="typingMess">
+<br>
+<br>
+<input type="button" value="Send" onclick="send()">
+<br>
+<br>
+Hộp thư đến:<input type="text" id="sendMess">
+<br>
+<br>
+Hộp thư đi: <input type="text" id="inboxMess">
+<script>
+
+    class Mobile {
+        pin;
+        typingMess; //soạn tin
+        sendMess; // hộp thư đã gửi
+        inboxMess; // hộp thư đến
+        status;
+        constructor(pin, status, typingMess, sendMess, inboxMess) {
+            this.status = status;
+            this.pin = pin
+            this.typingMess = typingMess
+            this.sendMess = sendMess
+            this.inboxMess = inboxMess
+
+        }
+        getPin(){
+            return this.pin
+        }
+        setPin(value){
+            this.pin = value
+        }
+
+        getTypingMess(){
+            return this.typingMess
+        }
+        setTypingMess(value){
+            this.typingMess = value
+        }
+
+        getSendMess(){
+            return this.sendMess
+        }
+        setSendMess(value){
+            this.sendMess = value
+        }
+
+        getInboxMess(){
+            return this.inboxMess
+        }
+        setInboxMess(value){
+            this.inboxMess = value
+        }
+
+        getStatus(){
+            return this.status
+        }
+        setStatus(value){
+            this.status = value
+        }
+
+        truPin(){
+            this.setPin(this.getPin() - 1);
+            if (this.getPin() < 0 ){
+                this.setPin(0)
+            }
+        }
+
+        lowPin(){
+            if(this.getPin() > 1 && this.getPin() < 10){
+                alert("Pin Yếu")
+            }else if (this.getPin() <= 0 ){
+                this.setStatus(false)
+            }
+        }
+
+        chargePin(){
+            this.setPin(100)
+        }
+
+        turnOnOff(){
+            if (this.getStatus() === true && this.getPin() > 0){
+                this.setStatus(false)
+                alert("Off")
+                return false
+            }else if(this.getStatus() === false && this.getPin() > 0) {
+                this.setStatus(true)
+                alert("On")
+                return true
+            }else {
+                alert("cắm sạc đi bạn êi")
+            }
+        }
+    }
+
+
+
+    let mobile1 = new Mobile(0, true, "", "", "", "");
+    function power(){
+        mobile1.turnOnOff(mobile1.getStatus())
+        mobile1.truPin()
+        document.getElementById('pin').innerHTML = mobile1.getPin()
+    }
+
+    function chargePin() {
+        mobile1.chargePin()
+        document.getElementById('pin').innerHTML = mobile1.getPin()
+
+    }
+
+    function send(){
+        if (mobile1.getStatus() === true){
+            mobile1.setTypingMess(document.getElementById('typingMess').value);
+            mobile1.setSendMess(mobile1.getTypingMess())
+
+        }
+    }
+
+    function lowPin(){
+        mobile1.lowPin()
+    }
+    lowPin()
+
+
+
+
+
+    // function checkPin(){
+    //     if(mobile1.getPin() < 5){
+    //         alert("Pin Yếu")
+    //     }
+    // }
+    //
+    // function chargePin(){
+    //     mobile1.setPin(100)
+    //     document.getElementById('pin').innerHTML = mobile1.getPin()
+    // }
+
+
+
+</script>
+</body>
+</html>
