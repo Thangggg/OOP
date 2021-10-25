@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Remote{
+        id;
+        nextChannel;
+        volumeUp;
+        status
+        constructor(id, nextChannel, volumeUp, status) {
+            this.id = id;
+            this.nextChannel = nextChannel;
+            this.volumeUp = volumeUp;
+            this.status = status
+        }
+
+
+        getId() {
+            return this.id;
+        }
+
+        setId(value) {
+            this.id = value;
+        }
+
+        getStatus() {
+            return this.status;
+        }
+
+        setStatus(value) {
+            this.status = value;
+        }
+
+        getNextChannel() {
+            return this.nextChannel;
+        }
+
+        setNextChannel(value) {
+            this.nextChannel = value;
+        }
+
+        getVolumeUp() {
+            return this.volumeUp;
+        }
+
+        setVolumeUp(value) {
+            this.volumeUp = value + 1;
+        }
+
+
+    }
+
+    class Tivi {
+        channel;
+        volume;
+        status;
+        constructor(channel, volume, status) {
+            this.channel = channel;
+            this.volume = volume;
+            this.status = status;
+        }
+
+
+        getChannel() {
+            return this.channel;
+        }
+
+        setChannel(value) {
+            this.channel = value;
+        }
+
+        getVolume() {
+            return this.volume;
+        }
+
+        setVolume(value) {
+            this.volume = value;
+        }
+
+        getStatus() {
+            return this.status;
+        }
+
+        setStatus(value) {
+            this.status = value;
+        }
+
+        next() {
+            return this.getChannel() + 1
+        }
+    }
+
+    let remote = new Remote(555, 0, 2);
+    let tivi = new Tivi(1, 0, false);
+
+    function turnOnOff () {
+        if (remote.getStatus() === true){
+            tivi.setStatus(true)
+            remote.setStatus(false)
+        }else {
+            tivi.setStatus(false)
+            remote.setStatus(true)
+        }
+    }
+
+    function next () {
+        if (tivi.getStatus() === true){
+            remote.setNextChannel(7)
+        }else {
+            alert("Bật cái ti vi lên")
+        }
+    }
+
+    function volumeUp () {
+        if (tivi.getStatus() === true){
+            remote.setVolumeUp()
+        }
+    }
+
+
+</script>
+</body>
+</html>
